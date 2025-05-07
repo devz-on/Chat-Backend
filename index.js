@@ -32,7 +32,9 @@ mongoose.connect(process.env.MONGO_URI, {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/messages', messageRoutes);
-
+app.get('/', (req, res) => {
+  res.send('Chat backend is running!');
+});
 socketHandler(io);
 
 const PORT = process.env.PORT || 3001;
